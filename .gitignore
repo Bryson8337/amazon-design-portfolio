@@ -1,0 +1,33 @@
+# Original design sources and working files are kept locally, not published.
+/作品图/
+/backups/
+/previews/
+/scripts/
+/.tmp/
+/%SystemDrive%/
+
+# Local preview exports.
+/*.png
+/*.jpg
+/*预览*.png
+/白底主图动态模块*.png
+/系列卡片模块*.png
+/preview-*.jpg
+
+# Local launch helpers and old page backups.
+/打开网站.bat
+/编辑网站.bat
+/works/*.legacy.html
+/works/*before*.html
+
+# Large editable source formats.
+*.psd
+*.psb
+*.aep
+*.ai
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
+desktop.ini
+

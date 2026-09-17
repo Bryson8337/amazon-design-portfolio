@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="邹林清 R600 Mini 磁吸自拍监控屏视觉案例：亚马逊主副图、高级 A+ 与移动端完整视觉系统。">
+<title>R600 Mini · 邹林清作品集</title>
+<link rel="stylesheet" href="../css/style.css?v=25">
+<style>
+  :root{
+    --ink:#16181d;
+    --ink-2:#5c6470;
+    --ink-3:#9aa1ac;
+    --paper:#ffffff;
+    --paper-2:#f6f7f9;
+    --line:#e8eaee;
+    --accent:#0e7ad3;
+    --accent-soft:#e8f3fc;
+    --sans:"Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    --serif:Georgia,"Times New Roman","Songti SC","SimSun",serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;width:100%;height:auto;border-radius:10px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .wrap-narrow{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- 通用板块标头 ---------- */
+  .sec-label{
+    font-size:12px;letter-spacing:.28em;color:var(--accent);
+    text-transform:uppercase;font-weight:600;margin-bottom:18px;
+  }
+  .sec-title{
+    font-size:clamp(26px,3.6vw,38px);font-weight:700;line-height:1.35;
+    letter-spacing:.01em;margin-bottom:16px;
+  }
+  .sec-lead{color:var(--ink-2);font-size:16.5px;max-width:640px;}
+  section{padding:96px 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding:130px 0 100px;
+    background:
+      radial-gradient(1100px 500px at 85% -10%, var(--accent-soft), transparent 60%),
+      var(--paper);
+  }
+  .hero .kicker{
+    display:inline-block;font-size:12.5px;letter-spacing:.3em;color:var(--accent);
+    border:1px solid #cfe6f8;border-radius:999px;padding:6px 16px;margin-bottom:30px;
+  }
+  .hero h1{
+    font-size:clamp(34px,5.4vw,58px);font-weight:800;line-height:1.22;
+    letter-spacing:.01em;margin-bottom:10px;
+  }
+  .hero .en{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    color:var(--ink-3);font-size:clamp(16px,2vw,21px);margin-bottom:34px;
+  }
+  .hero .lead{
+    font-size:17.5px;color:var(--ink-2);max-width:660px;margin-bottom:44px;
+  }
+  .meta-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  }
+  .meta-grid .cell{background:var(--paper);padding:18px 20px;}
+  .meta-grid .k{font-size:11.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin-bottom:6px;}
+  .meta-grid .v{font-size:14.5px;font-weight:600;}
+
+  /* ---------- 创作逻辑三原则 ---------- */
+  .logic{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:52px;}
+  .logic .item .num{
+    font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);margin-bottom:10px;
+  }
+  .logic .item h3{font-size:19px;font-weight:700;margin-bottom:10px;}
+  .logic .item p{font-size:14.5px;color:var(--ink-2);}
+
+  /* ---------- 作品图条目 ---------- */
+  .shot{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start;margin-top:72px;}
+  .shot.rev{grid-template-columns:1fr 1.35fr;}
+  .shot.rev .img{order:2;}
+  .shot .idx{
+    font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-3);margin-bottom:12px;
+  }
+  .shot h3{font-size:21px;font-weight:700;line-height:1.4;margin-bottom:12px;}
+  .shot h3 .en{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink-3);font-size:16px;margin-left:8px;}
+  .shot p{font-size:14.5px;color:var(--ink-2);margin-bottom:18px;}
+  .color-note{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);
+    border-radius:999px;padding:7px 14px;background:var(--paper-2);
+  }
+  .color-note i{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.08);}
+  .chapter{
+    margin-top:88px;padding-top:40px;border-top:1px dashed var(--line);
+  }
+  .chapter .ch-tag{font-size:12px;letter-spacing:.24em;color:var(--ink-3);text-transform:uppercase;margin-bottom:12px;}
+  .chapter h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin-bottom:10px;}
+  .chapter p{font-size:15px;color:var(--ink-2);max-width:620px;}
+
+  /* ---------- A+ 横版图 ---------- */
+  .wide-list{display:flex;flex-direction:column;gap:64px;margin-top:64px;}
+  .wide-item figure{margin:0;}
+  .wide-item figcaption{
+    display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+    margin-top:14px;font-size:13.5px;color:var(--ink-2);
+  }
+  .wide-item figcaption b{color:var(--ink);font-size:14.5px;font-weight:700;white-space:nowrap;}
+  .wide-item figcaption span{text-align:right;color:var(--ink-3);}
+
+  /* ---------- 手机端网格 ---------- */
+  .mobile-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px;
+  }
+  .mobile-grid img{border:1px solid var(--line);}
+
+  /* ---------- 全案长图 ---------- */
+  .fullboard{margin-top:56px;}
+  .fullboard img{border:1px solid var(--line);}
+
+  /* ---------- 方法论 / 总结 ---------- */
+  .method{background:var(--paper-2);border-top:1px solid var(--line);}
+  .method ol{list-style:none;counter-reset:step;margin-top:48px;}
+  .method li{
+    counter-increment:step;display:grid;grid-template-columns:64px 220px 1fr;
+    gap:28px;padding:26px 0;border-top:1px solid var(--line);align-items:start;
+  }
+  .method li::before{
+    content:"0" counter(step);font-family:var(--serif);font-style:italic;
+    font-size:24px;color:var(--accent);
+  }
+  .method li h3{font-size:17px;font-weight:700;line-height:1.5;}
+  .method li p{font-size:14.5px;color:var(--ink-2);}
+
+  .r600-case-footer{
+    padding:64px 0 80px;text-align:center;color:var(--ink-3);font-size:13px;
+    letter-spacing:.12em;border-top:1px solid var(--line);
+  }
+  .r600-case-footer b{color:var(--ink);letter-spacing:.2em;}
+
+  @media (max-width:900px){
+    .meta-grid{grid-template-columns:repeat(2,1fr);}
+    .logic{grid-template-columns:1fr;gap:28px;}
+    .shot,.shot.rev{grid-template-columns:1fr;gap:22px;}
+    .shot.rev .img{order:0;}
+    .method li{grid-template-columns:44px 1fr;grid-template-rows:auto auto;}
+    .method li p{grid-column:2;}
+    .mobile-grid{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+<style>body.r600-case{--gallery-gap:24px;--ti-gap:48px}.r600-case .nav{position:sticky;top:0;z-index:1000}.r600-case main{overflow:hidden}.r600-case .shot{gap:var(--ti-gap)}.r600-case .wide-list{gap:0}.r600-case .wide-item:nth-child(n+3){margin-top:max(24px,var(--gallery-gap))}.r600-case .wide-item:first-child figcaption{display:none}.r600-case .wide-item:first-child img{border-radius:10px 10px 0 0}.r600-case .wide-item:nth-child(2) img{border-radius:0 0 10px 10px}.r600-case .mobile-grid{gap:var(--gallery-gap)}.r600-case .has-img{position:relative}.r600-case img.site-img{cursor:zoom-in}.r600-case-footer .r600-back-home{display:inline-flex;margin-top:28px;color:var(--accent);font-weight:700;text-decoration:none;letter-spacing:.08em}.r600-case-footer .r600-back-home:hover{transform:translateX(-4px)}body.editing.r600-case .editable{outline-offset:4px}@media(max-width:560px){.r600-case header.hero{padding:88px 0 70px}.r600-case section{padding:70px 0}.r600-case .wrap,.r600-case .wrap-narrow{padding-inline:18px}.r600-case .meta-grid{grid-template-columns:1fr}.r600-case .mobile-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.r600-case .wide-item figcaption{display:grid;gap:5px}.r600-case .wide-item figcaption span{text-align:left}.r600-case .method li{grid-template-columns:34px 1fr;gap:16px}}</style>
+</head>
+<body class="r600-case">
+<a class="skip-link" href="#content">跳到主要内容</a>
+<header class="nav" id="top"><div class="container nav-inner"><a class="brand" href="../index.html">邹林清<em>.</em><small>AMAZON DESIGNER</small></a><nav class="nav-links"><a class="nav-link" href="../index.html">首页</a><div class="dropdown"><a class="nav-link active" href="../index.html#works">作品</a><div class="dropdown-menu"><a class="dropdown-item" href="../works/docking.html"><span>拓展坞</span><span>↗</span></a><a class="dropdown-item" href="../works/transmission.html"><span>无线图传</span><span>↗</span></a><a class="dropdown-item" href="../works/enclosure.html"><span>硬盘盒</span><span>↗</span></a><a class="dropdown-item" href="../works/projector.html"><span>R600 Mini</span><span>↗</span></a><a class="dropdown-item" href="../works/car.html"><span>车载</span><span>↗</span></a><a class="dropdown-item" href="../works/store.html"><span>店铺与品牌设计</span><span>↗</span></a><a class="dropdown-item" href="../works/ai.html"><span>AI 场景创作</span><span>↗</span></a></div></div><a class="nav-link" href="../index.html#contact">联系我</a></nav><button class="burger" aria-label="菜单"><span></span><span></span><span></span></button></div></header><div class="mobile-menu"><a class="m-title" href="../index.html">首页</a><a href="../index.html#skills">能力展示</a><a href="../index.html#works">精选作品</a><a class="m-title">作品分类</a><a href="../works/docking.html">拓展坞</a><a href="../works/transmission.html">无线图传</a><a href="../works/enclosure.html">硬盘盒</a><a href="../works/projector.html">R600 Mini</a><a href="../works/car.html">车载</a><a href="../works/store.html">店铺与品牌设计</a><a href="../works/ai.html">AI 场景创作</a><a class="m-title" href="../index.html#contact">联系我</a></div>
+
+<main id="content" class="r600-main">
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker editable" data-edit="r600-text-053">SINGLE PRODUCT CASE · 主副图 × A+ 全案</span>
+    <h1 class="editable" data-edit="r600-text-001">磁吸自拍监控屏<br>R600mini</h1>
+    <div class="en editable" data-edit="r600-text-054">Lemorele Selfie Monitor Screen · Phone Vlog Accessory</div>
+    <p class="lead editable" data-edit="r600-text-002">
+      这是一个只有巴掌大的产品，却解决自拍时"看不见自己"的经典痛点。整套视觉围绕一件事展开：
+      把"磁吸、预览、遥控、生态"四个功能点，翻译成一条"被看见的拍摄节奏"——装上、看见、确认、走远、带走。
+      主副图负责讲清楚，A+ 图负责讲动人，手机端负责在窄幅里讲得更快。
+    </p>
+    <div class="meta-grid">
+      <div class="cell"><div class="k">Audience</div><div class="v editable" data-edit="r600-text-055">Vlog / 自拍内容创作者</div></div>
+      <div class="cell"><div class="k">Focus</div><div class="v editable" data-edit="r600-text-056">磁吸秒装 · 实时预览</div></div>
+      <div class="cell"><div class="k">Output</div><div class="v editable" data-edit="r600-text-057">主图 2 + 附图 7 + A+ 桌面 / 手机端</div></div>
+      <div class="cell"><div class="k">Tone</div><div class="v editable" data-edit="r600-text-058">清透 · 社交感 · 轻快</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 创作逻辑 ================= -->
+<section>
+  <div class="wrap-narrow">
+    <div class="sec-label editable" data-edit="r600-text-059">Creative Logic</div>
+    <h2 class="sec-title editable" data-edit="r600-text-003">把"看不见自己"的痛点，<br>转成一套"被看见"的拍摄节奏。</h2>
+    <p class="sec-lead editable" data-edit="r600-text-004">
+      自拍屏的功能点很碎：磁吸、屏幕、蓝牙、APP、对焦、像素对比。直接罗列卖点只会变成参数墙。
+      所以整套图先定叙事主线，再让每张图只承担叙事中的一步。
+    </p>
+  </div>
+  <div class="wrap">
+    <div class="logic">
+      <div class="item">
+        <div class="num">01 / Rhythm</div>
+        <h3 class="editable" data-edit="r600-text-005">每张图只讲节奏里的一步</h3>
+        <p class="editable" data-edit="r600-text-006">装上 → 看见 → 确认画质 → 走远拍摄 → 收进口袋。九张主副图按使用时间线排列，观者顺着翻，就像替用户预演了一次完整拍摄。</p>
+      </div>
+      <div class="item">
+        <div class="num">02 / Scale</div>
+        <h3 class="editable" data-edit="r600-text-007">产品小，主体感不能小</h3>
+        <p class="editable" data-edit="r600-text-008">R600mini 在画面里物理占比很小，因此所有构图都用手机背板、手掌、自拍杆等"参照物"放大它的存在感，让它始终是视线的第一落点。</p>
+      </div>
+      <div class="item">
+        <div class="num">03 / System</div>
+        <h3 class="editable" data-edit="r600-text-009">三层交付，一个视觉系统</h3>
+        <p class="editable" data-edit="r600-text-010">主副图（讲清功能）→ 高级 A+（讲透场景）→ 手机端 A+（窄幅重排）。同一套蓝白主色与人物光影语言贯穿三层，保证详情页任何位置都能认出这是同一款产品。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 主副图 ================= -->
+<section>
+  <div class="wrap-narrow">
+    <div class="sec-label editable" data-edit="r600-text-060">Listing Images · 主副图 01–09</div>
+    <h2 class="sec-title editable" data-edit="r600-text-011">从磁吸一秒，到装进口袋。</h2>
+    <p class="sec-lead editable" data-edit="r600-text-012">主副图按"使用时间线"排序：前两张立产品识别，中间六张逐个拆解功能，最后一张用包装收束购买决策。</p>
+  </div>
+  <div class="wrap">
+
+    <div class="chapter">
+      <div class="ch-tag editable" data-edit="r600-text-061">Opening · 建立识别</div>
+      <h2 class="editable" data-edit="r600-text-013">先让产品在两秒内被记住。</h2>
+      <p class="editable" data-edit="r600-text-014">前两张主图不讲故事，只回答三个问题：这是什么、装在哪、屏幕里是什么。磁吸关系与实时画面同时出现，构成产品最核心的记忆点。</p>
+    </div>
+
+    <div class="shot">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/m01-hero-magnet.jpg" data-src="../assets/img/r600mini-case/m01-hero-magnet.jpg" alt="主图一：磁吸于手机背面的主视觉" data-img="r600-m01-hero-magnet" loading="eager" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-062">01 / 09 · 主图</div>
+        <h3 class="editable" data-edit="r600-text-015">磁吸即产品<span class="en editable" data-edit="r600-text-063">Snap-On Identity</span></h3>
+        <p class="editable" data-edit="r600-text-016">第一主视觉用大角度俯拍把"小屏吸附在大手机上"的对比关系一次讲完：银色手机背板占满画面，黑色小屏以橙色快门键点睛。产品虽小，却因色彩与材质对比成为绝对主角。</p>
+        <span class="color-note"><i style="background:#c9ced6"></i>银灰 <i style="background:#111318"></i>机身黑 <i style="background:#f5a623"></i>橙色点睛</span>
+      </div>
+    </div>
+
+    <div class="shot rev">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/m02-hand-ui.jpg" data-src="../assets/img/r600mini-case/m02-hand-ui.jpg" alt="主图二：手持使用姿态" data-img="r600-m02-hand-ui" loading="eager" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-064">02 / 09 · 主图</div>
+        <h3 class="editable" data-edit="r600-text-017">手持尺度，交代怎么用<span class="en editable" data-edit="r600-text-065">In-Hand Scale</span></h3>
+        <p class="editable" data-edit="r600-text-018">第二张换成手持视角：手掌同时托住手机与自拍屏，屏幕亮起实时预览与拍摄模式 UI。人与产品的比例关系在这一帧被定格——它是手机的配件，更是拍摄的主控台。</p>
+        <span class="color-note"><i style="background:#dfe3e8"></i>浅灰白 <i style="background:#7fa8c9"></i>屏幕天蓝</span>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-tag editable" data-edit="r600-text-066">Functions · 功能拆解</div>
+      <h2 class="editable" data-edit="r600-text-019">一个功能，一个场景，一张图。</h2>
+      <p class="editable" data-edit="r600-text-020">附图阶段拒绝参数堆砌：每张图锁定一个卖点，并把它放进一个具体场景里。画质用夜城对比讲，遥控用草原自拍讲，磁吸用骑行讲，生态用双机对比讲。</p>
+    </div>
+
+    <div class="shot">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f01-rear-camera.jpg" data-src="../assets/img/r600mini-case/f01-rear-camera.jpg" alt="附图一：后置镜头自拍画质对比" data-img="r600-f01-rear-camera" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-067">03 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-021">后置镜头，完美自拍<span class="en editable" data-edit="r600-text-068">Rear Camera, Perfect Selfie</span></h3>
+        <p class="editable" data-edit="r600-text-022">用最直白的左右对比讲清核心价值：前置 12MP 的平庸夜拍 vs 后置 48MP 的通透成片。灰与蓝的两块底色控制视觉权重，让"画质差距"一眼可读。</p>
+        <span class="color-note"><i style="background:#8d9299"></i>对比灰 <i style="background:#4aa3e8"></i>画质蓝</span>
+      </div>
+    </div>
+
+    <div class="shot rev">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f02-remote-10m.jpg" data-src="../assets/img/r600mini-case/f02-remote-10m.jpg" alt="附图二：10 米蓝牙遥控" data-img="r600-f02-remote-10m" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-069">04 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-023">走远十米，依然可控<span class="en editable" data-edit="r600-text-070">10m Bluetooth Remote</span></h3>
+        <p class="editable" data-edit="r600-text-024">草原、手机支架、走远的女生，超大"10m"字样压在画面中心，小的遥控器以特写圆窗呈现。远与近两个景别同框，把"距离"这个抽象参数变成可见的自由感。</p>
+        <span class="color-note"><i style="background:#bfe0f5"></i>天空蓝 <i style="background:#9ab86a"></i>草地绿</span>
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f03-hd-preview.jpg" data-src="../assets/img/r600mini-case/f03-hd-preview.jpg" alt="附图三：高清实时预览" data-img="r600-f03-hd-preview" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-071">05 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-025">边拍边看，帧帧到位<span class="en editable" data-edit="r600-text-072">HD Real-Time Preview</span></h3>
+        <p class="editable" data-edit="r600-text-026">花田奔跑的抓拍场景里，手持小屏与背后手机屏幕显示同一画面——实时同步不靠文案解释，靠两张屏幕里的同一张笑脸证明。底部手写体"Perfect Every Frame"补上情绪落款。</p>
+        <span class="color-note"><i style="background:#cfe3b8"></i>花田浅绿 <i style="background:#f3ead2"></i>奶油黄</span>
+      </div>
+    </div>
+
+    <div class="shot rev">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f04-magnet-ride.jpg" data-src="../assets/img/r600mini-case/f04-magnet-ride.jpg" alt="附图四：强磁吸骑行场景" data-img="r600-f04-magnet-ride" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-073">06 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-027">吸得牢，才敢带出门<span class="en editable" data-edit="r600-text-074">Powerful Magnetic Attachment</span></h3>
+        <p class="editable" data-edit="r600-text-028">骑行是最严苛的磁吸测试场景。橙色骑行服与蓝色天空对撞出运动张力，右侧圆角白框放大车把上的安装细节，弧形小字沿画面边缘滑过——"吸上一秒，稳到拍完"。</p>
+        <span class="color-note"><i style="background:#e8712a"></i>骑行橙 <i style="background:#8fc3e8"></i>远山蓝</span>
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f05-app.jpg" data-src="../assets/img/r600mini-case/f05-app.jpg" alt="附图五：APP 双端兼容" data-img="r600-f05-app" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-075">07 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-029">双机双系统，一屏通吃<span class="en editable" data-edit="r600-text-076">APP Connection Compatible</span></h3>
+        <p class="editable" data-edit="r600-text-030">橙机与白机左右对称，天然形成"iOS / Android 都支持"的视觉声明。底部浅色区承接 ShutterPal 图标与操作截图，把"兼容性"从卖点变成画面结构本身。</p>
+        <span class="color-note"><i style="background:#e8712a"></i>橙 <i style="background:#d9dde2"></i>银白 <i style="background:#f6f8fa"></i>信息底</span>
+      </div>
+    </div>
+
+    <div class="shot rev">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f06-social-preview.jpg" data-src="../assets/img/r600mini-case/f06-social-preview.jpg" alt="附图六：社交平台风格的实时预览" data-img="r600-f06-social-preview" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-077">08 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-031">把成片装进社交语境<span class="en editable" data-edit="r600-text-078">Frame It Like a Feed</span></h3>
+        <p class="editable" data-edit="r600-text-032">整张图被装进社交媒体卡片：点赞 99+、对话气泡、四宫格轮播点。产品拍出的画面被预先"发布"，让观者在下单前就看到它为自己生产的内容长什么样。</p>
+        <span class="color-note"><i style="background:#ffffff"></i>卡片白 <i style="background:#e8452c"></i>点赞红 <i style="background:#2f9be0"></i>气泡蓝</span>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-tag editable" data-edit="r600-text-079">Closing · 收束决策</div>
+      <h2 class="editable" data-edit="r600-text-033">最后一张，回到开箱时刻。</h2>
+      <p class="editable" data-edit="r600-text-034">讲完所有功能后，用包装清单完成收束：产品、磁吸圈、充电线、说明书在白底上排开，尺寸标注直接压在产品旁。决策信息给足，购买顾虑清零。</p>
+    </div>
+
+    <div class="shot">
+      <div class="img has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/f07-box.jpg" data-src="../assets/img/r600mini-case/f07-box.jpg" alt="附图七：包装清单" data-img="r600-f07-box" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="idx editable" data-edit="r600-text-080">09 / 09 · 附图</div>
+        <h3 class="editable" data-edit="r600-text-035">What's In The Box<span class="en editable" data-edit="r600-text-081">Honest Inventory</span></h3>
+        <p class="editable" data-edit="r600-text-036">白底、45 度俯拍、等距排布——清单图不需要情绪，只需要秩序。盒面渲染图与实物同框，是给犹豫者的一颗定心丸。</p>
+        <span class="color-note"><i style="background:#ffffff"></i>纯白 <i style="background:#2f9be0"></i>品牌蓝</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= 高级 A+ ================= -->
+<section>
+  <div class="wrap-narrow">
+    <div class="sec-label editable" data-edit="r600-text-082">Premium A+ · 桌面端</div>
+    <h2 class="sec-title editable" data-edit="r600-text-037">A+ 不是主副图的重复，<br>而是把它放进生活里。</h2>
+    <p class="sec-lead editable" data-edit="r600-text-038">
+      主副图回答"它是什么、有什么功能"；A+ 页面回答"它出现在什么样的生活里"。
+      头图先立气质，中段用功能矩阵承参数，后半段全部交给真实使用场景——街头、海边、美妆桌、音乐节。
+    </p>
+  </div>
+  <div class="wrap">
+    <div class="wide-list">
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-hero.jpg" data-src="../assets/img/r600mini-case/a-hero.jpg" alt="A+ 头图 KV" data-img="r600-a-hero" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-086"><b>01 · 头图 KV — Phone Vlog Selfie Monitor Screen</b><span>天空蓝大场域 + 丝带动势，先给产品一个"轻盈科技"的第一印象。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-features.jpg" data-src="../assets/img/r600mini-case/a-features.jpg" alt="A+ 功能矩阵" data-img="r600-a-features" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-087"><b>02 · 功能矩阵 — Magnetic / HD Preview / 10m / Focus / 2.4G WiFi</b><span>五个卖点在一屏内完成收纳，蓝白分格控制节奏，参数密度高但呼吸感不丢。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-magsafe.jpg" data-src="../assets/img/r600mini-case/a-magsafe.jpg" alt="A+ 强磁吸" data-img="r600-a-magsafe" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-088"><b>03 · 强磁吸 — Strong MagSafe Adsorption</b><span>手持特写 + 一秒吸附文案，把安装动作压缩成一个瞬间的确信。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-frontrear.jpg" data-src="../assets/img/r600mini-case/a-frontrear.jpg" alt="A+ 前后置对比" data-img="r600-a-frontrear" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-089"><b>04 · 前后置对比 — 48MP vs 12MP</b><span>同机位双拼，青色对灰色，参数差异被色彩直接翻译成观感差异。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-preview-compare.jpg" data-src="../assets/img/r600mini-case/a-preview-compare.jpg" alt="A+ 实时预览对比" data-img="r600-a-preview-compare" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-090"><b>05 · 有屏 vs 盲拍 — See It Before You Shoot</b><span>左边彩色的确定，右边黑白加问号的未知——用一张图讲清"为什么需要这块屏"。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-makeup.jpg" data-src="../assets/img/r600mini-case/a-makeup.jpg" alt="A+ 美妆直播场景" data-img="r600-a-makeup" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-091"><b>06 · 场景 — 美妆录制</b><span>化妆桌面 + 环形补光，镜头圆窗放大屏幕画面，竖屏内容创作者一眼认领自己的工位。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-app.jpg" data-src="../assets/img/r600mini-case/a-app.jpg" alt="A+ APP 连接流程" data-img="r600-a-app" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-092"><b>07 · 生态 — APP Compatible with More Phones</b><span>四步连接流程横向铺开，橙白双机收在左侧，技术流程被排成了整齐的信息动线。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-scene-street.jpg" data-src="../assets/img/r600mini-case/a-scene-street.jpg" alt="A+ 街头 10 米传输" data-img="r600-a-scene-street" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-093"><b>08 · 场景 — 街头 10m 低延迟</b><span>一男一女隔街对拍，"10m"蓝色大字横在中间充当画面主角，产品退后半步成全氛围。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-scene-sea.jpg" data-src="../assets/img/r600mini-case/a-scene-sea.jpg" alt="A+ 海边自拍场景" data-img="r600-a-scene-sea" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-094"><b>09 · 场景 — 海边自拍</b><span>背影 + 自拍杆 + 海平线，产品小到几乎看不见，但整个画面的松弛感都是它带来的。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-portable.jpg" data-src="../assets/img/r600mini-case/a-portable.jpg" alt="A+ 音乐节便携场景" data-img="r600-a-portable" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-095"><b>10 · 场景 — 音乐节便携收尾</b><span>透明挎包里手机、耳机、R600mini 各就各位——"随时可用"的卖点最终落在一只包的通透感上。</span></figcaption>
+      </div>
+
+      <div class="wide-item">
+        <figure class="has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/a-box.jpg" data-src="../assets/img/r600mini-case/a-box.jpg" alt="A+ 包装清单" data-img="r600-a-box" loading="lazy" decoding="async"></figure>
+        <figcaption class="editable" data-edit="r600-text-096"><b>11 · 收束 — What's In The Box</b><span>与主副图结尾呼应，全案最后仍然回到那张诚实的白底清单。</span></figcaption>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= A+ 手机端 ================= -->
+<section>
+  <div class="wrap-narrow">
+    <div class="sec-label editable" data-edit="r600-text-084">Mobile A+ · 手机端</div>
+    <h2 class="sec-title editable" data-edit="r600-text-041">同一套系统，在窄幅里换一种讲法。</h2>
+    <p class="sec-lead editable" data-edit="r600-text-042">
+      手机端不是桌面端的等比缩小：单屏信息量减半、主体比例放大、文案竖向堆叠。
+      十张竖图让每一次滑动只做一个决定——继续往下看。
+    </p>
+  </div>
+  <div class="wrap">
+    <div class="mobile-grid">
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-01.jpg" data-src="../assets/img/r600mini-case/mobile-01.jpg" alt="手机端 A+ 01" data-img="r600-mobile-01" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-02.jpg" data-src="../assets/img/r600mini-case/mobile-02.jpg" alt="手机端 A+ 02" data-img="r600-mobile-02" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-03.jpg" data-src="../assets/img/r600mini-case/mobile-03.jpg" alt="手机端 A+ 03" data-img="r600-mobile-03" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-04.jpg" data-src="../assets/img/r600mini-case/mobile-04.jpg" alt="手机端 A+ 04" data-img="r600-mobile-04" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-05.jpg" data-src="../assets/img/r600mini-case/mobile-05.jpg" alt="手机端 A+ 05" data-img="r600-mobile-05" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-06.jpg" data-src="../assets/img/r600mini-case/mobile-06.jpg" alt="手机端 A+ 06" data-img="r600-mobile-06" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-07.jpg" data-src="../assets/img/r600mini-case/mobile-07.jpg" alt="手机端 A+ 07" data-img="r600-mobile-07" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-08.jpg" data-src="../assets/img/r600mini-case/mobile-08.jpg" alt="手机端 A+ 08" data-img="r600-mobile-08" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-09.jpg" data-src="../assets/img/r600mini-case/mobile-09.jpg" alt="手机端 A+ 09" data-img="r600-mobile-09" loading="lazy" decoding="async"></figure>
+      <figure class="r600-mobile-card has-img" data-edit-card><img class="site-img js-lightbox" src="../assets/img/r600mini-case/mobile-10.jpg" data-src="../assets/img/r600mini-case/mobile-10.jpg" alt="手机端 A+ 10" data-img="r600-mobile-10" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 方法论 ================= -->
+<section class="method">
+  <div class="wrap-narrow">
+    <div class="sec-label editable" data-edit="r600-text-085">Methodology</div>
+    <h2 class="sec-title editable" data-edit="r600-text-043">从参考到自己的方法论。</h2>
+    <p class="sec-lead editable" data-edit="r600-text-044">
+      这套图的底层方法，是把优秀作品集里"生活方式叙事"的思路，迁移到电商详情页的交付语境里，并长出自己的四步工作法。
+    </p>
+  </div>
+  <div class="wrap">
+    <ol>
+      <li>
+        <h3 class="editable" data-edit="r600-text-045">先定一条时间线叙事</h3>
+        <p class="editable" data-edit="r600-text-046">不按功能列表排图，而是按用户的真实使用顺序排图：装上、看见、确认、走远、带走。功能只是时间线上的站点。</p>
+      </li>
+      <li>
+        <h3 class="editable" data-edit="r600-text-047">一图一卖点一场景</h3>
+        <p class="editable" data-edit="r600-text-048">每张图只允许讲一件事，且必须发生在具体场景里。参数自己不会说话，是草原、街头和化妆桌替它开口。</p>
+      </li>
+      <li>
+        <h3 class="editable" data-edit="r600-text-049">用参照物撑起小产品</h3>
+        <p class="editable" data-edit="r600-text-050">小配件最怕在画面里失重。手掌、手机背板、自拍杆都是刻意安排的比例参照，让小产品始终握有第一视线。</p>
+      </li>
+      <li>
+        <h3 class="editable" data-edit="r600-text-051">三层交付，一个系统</h3>
+        <p class="editable" data-edit="r600-text-052">主副图讲清楚，A+ 讲动人，手机端讲得更快。主色、人物光影、信息卡片样式三层贯通，形成可复用的产品视觉模板。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</main>
+<footer class="r600-case-footer"><div class="wrap"><p><b>R600MINI</b> · SINGLE PRODUCT VISUAL SYSTEM</p><p style="margin-top:10px;">主副图 × 高级 A+ × 手机端 · 一条被看见的拍摄节奏</p><a class="r600-back-home" href="../index.html#works">← 返回产品系列</a></div></footer>
+
+<div class="lightbox" id="lightbox"><button class="lb-btn lb-close" id="lb-close" aria-label="关闭">✕</button><button class="lb-btn lb-prev" id="lb-prev" aria-label="上一张">‹</button><img id="lb-img" alt=""><button class="lb-btn lb-next" id="lb-next" aria-label="下一张">›</button><div class="cap" id="lb-cap"></div></div><div class="toast" id="toast"></div><button class="edit-btn" id="edit-toggle" type="button" title="自定义编辑">✎ 自定义</button><div class="edit-panel" id="edit-panel"><div class="ep-head">自定义设置<button class="ep-close" id="ep-close" type="button">×</button></div><div class="ep-row"><label for="gap-gallery">图片间距</label><input type="range" id="gap-gallery" min="4" max="72" value="24"><span id="gap-gallery-val">24</span></div><div class="ep-row"><label for="gap-ti">文字与图片间距</label><input type="range" id="gap-ti" min="8" max="120" value="48"><span id="gap-ti-val">48</span></div><button class="ep-reset" id="ep-reset" type="button">恢复默认</button><p class="ep-tip">编辑模式：直接点击文字可修改；点击图片可上传替换；选中文字后用浮窗 A± / 字距± 调整字号与字间距。</p></div><div class="edit-toolbar" id="edit-toolbar"><button type="button" data-adj="fs-">A−</button><button type="button" data-adj="fs+">A+</button><button type="button" data-adj="ls-">字距−</button><button type="button" data-adj="ls+">字距+</button><button type="button" data-adj="reset">恢复</button></div><script src="../js/main.js?v=17"></script>
+
+</body>
+</html>

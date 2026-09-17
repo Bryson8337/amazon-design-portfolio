@@ -1,0 +1,34 @@
+/* Docking archive: the SANQ02 case-page system, repeated for four products. */
+.docking-series-index{position:sticky;z-index:18;top:78px;background:rgba(9,10,13,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.12)}
+.docking-series-index .container{min-height:64px;display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none}
+.docking-series-index .container::-webkit-scrollbar{display:none}
+.docking-series-index span{margin-right:auto;padding-right:28px;color:rgba(255,255,255,.42);font:700 9px/1 Bahnschrift,sans-serif;letter-spacing:.2em;white-space:nowrap}
+.docking-series-index a{min-height:64px;padding:0 clamp(18px,2.3vw,34px);display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.7);border-left:1px solid rgba(255,255,255,.12);font-size:11px;font-weight:650;letter-spacing:.04em;white-space:nowrap;transition:color .25s ease,background .25s ease}
+.docking-series-index a:hover,.docking-series-index a:focus-visible{color:#fff;background:rgba(255,255,255,.07)}
+.docking-series-index i{color:var(--sanq-signal);font:650 10px/1 Bahnschrift,sans-serif;font-style:normal}
+.docking-overview{scroll-margin-top:142px}
+.docking-overview:not(#ac12){border-top:1px solid rgba(9,10,13,.13)}
+.docking-system{border-bottom:1px solid rgba(9,10,13,.1)}
+.docking-system .sanq-showcase{--listing-count:7}
+.docking-mobile-media{position:relative;width:100%;overflow:hidden;background:#fff}
+.docking-mobile-media img{display:block;width:100%;height:100%;object-fit:contain;background:#fff}
+.sanq-listing-track img[data-ratio="portrait"]{left:0;width:100%;aspect-ratio:3/4;object-fit:cover;background:#fff}
+.sanq-listing-track img[data-ratio="square"]{left:0;width:100%;aspect-ratio:1;object-fit:contain;background:#fff}
+.sanq-mobile-rail figure[data-ratio="portrait"] .docking-mobile-media{aspect-ratio:3/4}
+.sanq-mobile-rail figure[data-ratio="square"] .docking-mobile-media{aspect-ratio:1}
+.sanq-mobile-rail figure.custom-height .docking-mobile-media,.sanq-banner.custom-height .sanq-banner-media,.sanq-aplus-document figure.custom-height{height:var(--custom-h)!important;aspect-ratio:auto!important}
+.sanq-mobile-rail figure.custom-height img,.sanq-banner.custom-height img,.sanq-aplus-document figure.custom-height img{width:100%;height:100%;object-fit:cover}
+.sanq-banner-wall{gap:var(--gallery-gap,24px)}
+.sanq-aplus-document{gap:var(--gallery-gap,0px)}
+.sanq-aplus-document figure{margin:0}
+body.editing .docking-system .sanq-phone-stage{display:none!important}
+body.editing .docking-system .sanq-mobile-gallery{display:block!important;margin-top:18px}
+body.editing .docking-system .sanq-mobile-rail{display:grid!important;grid-template-columns:1fr;gap:var(--gallery-gap,24px);overflow:visible;scroll-snap-type:none}
+body.editing .docking-system .sanq-mobile-rail figure{width:100%;max-width:none;flex:none}
+body.editing .docking-system .sanq-mobile-controls{display:none}
+body.editing .docking-mobile-media{min-height:280px}
+body.editing .docking-mobile-media img{object-fit:contain}
+@media (min-width:1024px){body.editing .docking-system .sanq-showcase{grid-template-columns:minmax(320px,4fr) minmax(0,8fr)}}
+@media (max-width:1023px){.docking-series-index{top:68px}.docking-series-index span{display:none}.docking-series-index a:first-of-type{border-left:0}.sanq-mobile-rail figure[data-ratio="portrait"]{flex-basis:min(58vw,360px)}.sanq-mobile-rail figure[data-ratio="square"]{flex-basis:min(76vw,430px)}}
+@media (max-width:640px){.docking-series-index{top:62px}.docking-series-index .container{padding-inline:10px}.docking-series-index a{min-height:54px;padding-inline:15px;font-size:10px}.docking-overview{scroll-margin-top:116px}.sanq-mobile-rail figure[data-ratio="portrait"]{flex-basis:min(72vw,340px)}}
+@media (prefers-reduced-motion:reduce){.docking-series-index{backdrop-filter:none}}
