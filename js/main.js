@@ -548,7 +548,7 @@
     if (dbPromise) return dbPromise;
     dbPromise = new Promise(function (resolve) {
       var request;
-      try { request = indexedDB.open("zlc_portfolio_editor", 1); } catch (error) { resolve(null); return; }
+      try { request = indexedDB.open("zlc_portfolio_editor_v40", 1); } catch (error) { resolve(null); return; }
       request.onupgradeneeded = function () {
         var db = request.result;
         if (!db.objectStoreNames.contains("images")) db.createObjectStore("images", { keyPath: "id" });
